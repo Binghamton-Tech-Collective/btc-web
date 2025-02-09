@@ -1,32 +1,99 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  // Add useEffect to handle body scroll
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
-    <nav className="top-0 left-0 right-0 bg-white z-50 mr-8">
-      <ul className="flex flex-row justify-end items-center gap-10 mx-auto h-16 px-6">
-        <Link to="/">
-          <li className="text-gray-600 hover:text-btc transition-colors cursor-pointer">
-            Home
-          </li>
-        </Link>
-        <li className="text-gray-600 hover:text-btc transition-colors cursor-pointer">
-          About
-        </li>
-        <li className="text-gray-600 hover:text-btc transition-colors cursor-pointer">
-          Projects
-        </li>
-        <li className="text-gray-600 hover:text-btc transition-colors cursor-pointer">
-          Teams
-        </li>
-        <li className="text-gray-600 hover:text-btc transition-colors cursor-pointer">
-          Contact Us
-        </li>
-        <li>
-          <button className="bg-btc hover:bg-btcdark text-white py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
-            Join <i className="fa-solid fa-arrow-right text-sm"></i>
+    <nav className="top-0 left-0 right-0 bg-white z-50 mt-4">
+      <div className="px-4 md:mx-auto">
+        <div className="flex justify-between items-center h-16 relative">
+          {/* Logo */}
+          <div className="flex items-center text-xl font-inter font-bold text-btc">
+            <Link to="/">
+              <span className="flex items-center gap-2">
+                <div className="w-1 h-6 bg-btc"></div>
+                Binghamton Tech Collective
+              </span>
+            </Link>
+          </div>
+
+          {/* Hamburger button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-btc hover:text-btc-hover absolute right-4 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="h-6 w-6 transition-transform duration-200 ease-in-out"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              style={{ transform: isOpen ? "rotate(90deg)" : "rotate(0)" }}
+            >
+              {isOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
           </button>
-        </li>
-      </ul>
+
+          {/* Navigation Links */}
+          <ul
+            className={`${
+              isOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-2 md:opacity-100 md:translate-y-0"
+            } md:flex flex-col md:flex-row fixed md:relative top-16 md:top-0 left-0 right-0 w-screen md:w-auto md:bg-white items-center gap-8 md:gap-8 md:pb-0 shadow-lg md:shadow-none transition-all duration-300 ease-in-out z-50 px-8 pb-2 md:px-0 bg-white text-center md:text-left`}
+          >
+            {[
+              { path: "/", label: "Home" },
+              { path: "/about", label: "About" },
+              { path: "/projects", label: "Projects" },
+              { path: "/team", label: "Team" },
+              { path: "/support", label: "Support" },
+            ].map(({ path, label }) => (
+              <li key={path} className="mb-6 md:mb-0">
+                <Link
+                  to={path}
+                  className={`${
+                    location.pathname === path
+                      ? "text-btc"
+                      : "text-gray-700 hover:text-btc"
+                  } block w-full text-[24px] md:text-base`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+            <li className="w-full md:w-auto">
+              <button className="bg-btc hover:bg-btcdark text-white py-2 px-4 rounded-lg transition-colors flex items-center gap-2 mx-auto md:mx-0 text-[24px] md:text-base">
+                Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };

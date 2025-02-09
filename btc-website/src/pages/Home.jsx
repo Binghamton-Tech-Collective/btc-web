@@ -1,13 +1,25 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+
 export const Home = () => {
+  const { scrollY } = useScroll();
+  
+  // Create transform values for left and right elements
+  const leftXTransform = useTransform(scrollY, [0, 300], [0, -1000]);
+  const rightXTransform = useTransform(scrollY, [0, 300], [0, 1000]);
+  
   return (
     <div>
       {/* Hero Section */}
       <section
-        className="min-h-screen flex flex-col justify-center items-center px-20 bg-[url(/btc_element.png)] bg-no-repeat bg-contain"
+        className="min-h-screen flex flex-col justify-start items-center px-20 pt-32 bg-[url(/btc_element.png)] bg-no-repeat bg-contain" 
         id="home"
       >
         <div className="flex flex-row justify-center items-center">
-          <div className="flex flex-col gap-6 justify-center items-center w-1/2 -translate-y-20">
+          <motion.div 
+            style={{ x: leftXTransform }}
+            transition={{ type: "spring", stiffness: 50 }}
+            className="flex flex-col gap-6 justify-center items-center w-1/2"
+          >
             <div className="flex flex-col gap-4">
               <h1 className="text-left font-inter font-bold text-6xl text-[#212529]">
                 Bringing engineers, designers, and managers to make a{" "}
@@ -19,19 +31,22 @@ export const Home = () => {
                 through innovative app and website development.
               </p>
             </div>
-          </div>
-          <div className="flex justify-center items-center w-1/2 -translate-y-32">
+          </motion.div>
+          <motion.div 
+            style={{ x: rightXTransform }}
+            className="flex justify-center items-center w-1/2"
+          >
             <img
               src="/btc_logo.png"
               alt="BTC Logo"
-              className="max-w-full h-auto"
+              className="max-w-full h-auto object-contain -translate-y-16"
             />
-          </div>
+          </motion.div>
         </div>
         <div className="flex flex-row justify-center items-center mt-20">
           <button
             onClick={() => window.location.href = '#about'}
-            className="py-4 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-1/2 font-bold absolute bottom-1"
+            className="py-4 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-1/2 font-bold absolute bottom-1 hidden md:flex"
           >
             <i className="fa-solid fa-chevron-down text-5xl text-black hover:text-btc transition-colors cursor-pointer"></i>
           </button>
@@ -43,7 +58,13 @@ export const Home = () => {
         className="min-h-screen flex justify-center items-center gap-8 px-20 bg-[#F5F5F5] bg-[url(/btc_background.png)] bg-no-repeat bg-[length:30%_auto] bg-[left_bottom_5rem] bg-left"
         id="about"
       >
-        <div className="flex flex-col gap-6 justify-center w-1/2">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col gap-6 justify-center w-1/2"
+        >
           <h2 className="text-[#212529] text-left text-5xl font-bold font-inter">
             Digital products made <br />
             <span className="text-btc">by students, for students</span>
@@ -57,8 +78,14 @@ export const Home = () => {
           <button className="bg-btc hover:bg-btcdark text-white py-4 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-1/4 font-bold">
             Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
           </button>
-        </div>
-        <div className="w-[735px] h-[547px] bg-[#d9d9d9]" />
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="w-[735px] h-[547px] bg-[#d9d9d9]" 
+        />
       </section>
 
       {/* More info */}
