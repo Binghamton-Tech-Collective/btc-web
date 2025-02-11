@@ -20,11 +20,11 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="top-0 left-0 right-0 bg-white z-50 mt-4">
+    <nav className="top-0 left-0 right-0 bg-white z-50 mt-2">
       <div className="px-4 md:mx-auto">
         <div className="flex justify-between items-center h-16 relative">
           {/* Logo */}
-          <div className="flex items-center text-xl font-inter font-bold text-btc">
+          <div className="flex items-center text-xl font-inter font-bold text-btc pb-2">
             <Link to="/">
               <span className="flex items-center gap-2">
                 <div className="w-1 h-6 bg-btc"></div>
@@ -63,7 +63,7 @@ export const Navbar = () => {
               isOpen
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 md:opacity-100 md:translate-y-0"
-            } md:flex flex-col md:flex-row fixed md:relative top-16 md:top-0 left-0 right-0 w-screen md:w-auto md:bg-white items-center gap-8 md:gap-8 md:pb-0 shadow-lg md:shadow-none transition-all duration-300 ease-in-out z-50 px-8 pb-2 md:px-0 bg-white text-center md:text-left`}
+            } md:flex flex-col md:flex-row fixed md:relative top-16 pt-5 pb-10 md:top-0 left-0 right-0 w-screen md:w-auto md:bg-white items-center gap-8 md:gap-8 md:pb-0 shadow-lg md:shadow-none transition-all duration-300 ease-in-out z-50 px-8 pb-2 md:px-0 bg-white text-center md:text-left`}
           >
             {[
               { path: "/", label: "Home" },
@@ -77,8 +77,8 @@ export const Navbar = () => {
                   to={path}
                   className={`${
                     location.pathname === path
-                      ? "text-btc"
-                      : "text-gray-700 hover:text-btc"
+                      ? "text-white bg-btc px-4 py-2 rounded-lg md:bg-transparent md:text-btc"
+                      : "text-gray-700 hover:text-btc hover:bg-btc/10 px-4 py-2 rounded-lg transition-colors md:bg-transparent md:hover:bg-transparent"
                   } block w-full text-[24px] md:text-base`}
                   onClick={() => setIsOpen(false)}
                 >
