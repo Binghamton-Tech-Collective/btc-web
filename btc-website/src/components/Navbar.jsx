@@ -20,7 +20,7 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="top-0 left-0 right-0 bg-white z-50 my-2">
+    <nav className="top-0 left-0 right-0 transparent z-50 my-2">
       <div className="px-4 md:mx-auto">
         <div className="flex justify-between items-center h-16 relative">
           {/* Logo */}
@@ -67,7 +67,6 @@ export const Navbar = () => {
           >
             {[
               { path: "/", label: "Home" },
-              { path: "/about", label: "About" },
               { path: "/projects", label: "Projects" },
               { path: "/team", label: "Team" },
               { path: "/support", label: "Support" },
