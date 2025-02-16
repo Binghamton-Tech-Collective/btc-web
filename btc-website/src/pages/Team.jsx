@@ -1,13 +1,62 @@
 import { motion } from "framer-motion";
 import { TeamMember } from "../components/TeamMember";
 import { Connect } from "../components/Connect";
-import eboard from "../data/eboard.json";
-import pm from "../data/pm.json";
-import swe from "../data/swe.json";
-import uiux from "../data/uiux.json";
+import { db } from "../firebase";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 
 export const Team = () => {
+
+  const [eboard, setEboard] = useState([]);
+  const [pm, setPm] = useState([]);
+  const [swe, setSwe] = useState([]);
+  const [uiux, setUiux] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+
+  // Fetching the Team Members and adding the to different category from firebase
+
+  useEffect(() => {
+    const fetchTeamData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "teamMembers"));
+        const teamMembers = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        // Filter team members based on roles
+        const eboardMembers = teamMembers
+          .filter((member) => member.isEboardMember)
+          .sort((a, b) => a.priority - b.priority || a.firstName.localeCompare(b.firstName));
+
+        const pmMembers = teamMembers
+          .filter((member) => member.isProductManager)
+          .sort((a, b) => a.priority - b.priority || a.firstName.localeCompare(b.firstName));
+
+        const sweMembers = teamMembers
+          .filter((member) => member.isSoftwareEngineer)
+          .sort((a, b) => a.priority - b.priority || a.firstName.localeCompare(b.firstName));
+
+        const uiuxMembers = teamMembers
+          .filter((member) => member.isUIDesigner)
+          .sort((a, b) => a.priority - b.priority || a.firstName.localeCompare(b.firstName));
+
+        setEboard(eboardMembers);
+        setPm(pmMembers);
+        setSwe(sweMembers);
+        setUiux(uiuxMembers);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching team members:", error);
+        setLoading(false);
+      }
+    };
+    fetchTeamData();
+  }, []);
+
+  if (loading) return <p>Loading team members...</p>;
+
   return (
     <div>
       <section
@@ -42,11 +91,11 @@ export const Team = () => {
           className="md:w-[735px] md:h-[547px] bg-[#d9d9d9] w-[300px] h-[250px] md:order-2 order-1 mt-10 md:mt-0"
         />
       </section>
-      <TeamMember title={"Executive Board"} position={eboard}/>
-	  <TeamMember title={"Product Managers"} position={pm}/>
-	  <TeamMember title={"Software Engineers"} position={swe}/>
-	  <TeamMember title={"UX/UI Designers"} position={uiux}/>
-	  <Connect />
+      <TeamMember title={"Executive Board"} position={eboard} />
+      <TeamMember title={"Product Managers"} position={pm} />
+      <TeamMember title={"Software Engineers"} position={swe} />
+      <TeamMember title={"UX/UI Designers"} position={uiux} />
+      <Connect />
     </div>
   );
 };

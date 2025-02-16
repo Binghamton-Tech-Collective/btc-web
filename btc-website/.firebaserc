@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "btccms-e43f8"
+  },
+  "targets": {
+    "btccms-e43f8": {
+      "hosting": {
+        "btc-site": [
+          "bingtechcollective"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

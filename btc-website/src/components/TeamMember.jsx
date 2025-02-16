@@ -15,12 +15,12 @@ export const TeamMember = (props) => {
             >
               <div className="w-48 h-48 mb-4 overflow-hidden rounded-full">
                 <img
-                  src={member.imageSrc}
-                  alt={member.name}
+                  src={member.image}
+                  alt={member.firstName}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+              <h3 className="text-xl font-semibold mb-2">{member.firstName} {member.lastName}</h3>
               <p className="text-gray-600">{member.title}</p>
             </div>
           );
