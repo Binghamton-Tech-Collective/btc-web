@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import { TeamMember } from "../components/TeamMember";
 import { Connect } from "../components/Connect";
-// import eboard from "../data/eboard.json";
-// import pm from "../data/pm.json";
-// import swe from "../data/swe.json";
-// import uiux from "../data/uiux.json";
 import { db } from "../firebase";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -21,7 +17,6 @@ export const Team = () => {
 
   // Fetching the Team Members and adding the to different category from firebase
 
-
   useEffect(() => {
     const fetchTeamData = async () => {
       try {
@@ -30,7 +25,6 @@ export const Team = () => {
           id: doc.id,
           ...doc.data(),
         }));
-        console.log(teamMembers);
         // Filter team members based on roles
         const eboardMembers = teamMembers
           .filter((member) => member.isEboardMember)
@@ -58,7 +52,6 @@ export const Team = () => {
         setLoading(false);
       }
     };
-
     fetchTeamData();
   }, []);
 
