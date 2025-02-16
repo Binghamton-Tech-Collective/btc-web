@@ -1,3 +1,5 @@
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { SiFigma } from "react-icons/si";
 import { Connect } from "../components/Connect";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -97,10 +99,50 @@ export const Projects = () => {
                     ))}
                   </div>
                 )}
+
+                {/* Project Links */}
+                <div className="flex gap-4 mt-4">
+                  {project.projectUrls?.[0] && (
+                    <a
+                      href={project.projectUrls[0]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[#212529] hover:text-btc transition-all"
+                    >
+                      <FaGithub className="text-2xl" />
+                      <span className="hidden md:inline">GitHub</span>
+                    </a>
+                  )}
+                  {project.appUrl && (
+                    <a
+                      href={project.appUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[#212529] hover:text-btc transition-all"
+                    >
+                      <FaExternalLinkAlt className="text-2xl" />
+                      <span className="hidden md:inline">Website</span>
+                    </a>
+                  )}
+                  {project.figmaUrl && (
+                    <a
+                      href={project.figmaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[#212529] hover:text-btc transition-all"
+                    >
+                      <SiFigma className="text-2xl" />
+                      <span className="hidden md:inline">Figma</span>
+                    </a>
+                  )}
+                </div>
               </div>
               {project.images?.length > 1 && (
                 <div className="w-full md:w-1/2">
-                  <img src={project.images[1]} alt={`${project.title}_display`} />
+                  <img
+                    src={project.images[1]}
+                    alt={`${project.title}_display`}
+                  />
                 </div>
               )}
             </section>
