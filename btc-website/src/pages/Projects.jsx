@@ -3,7 +3,7 @@ import { Connect } from "../components/Connect";
 export const Projects = () => {
   return (
     <div>
-      <section className="min-h-screen flex flex-col justify-start items-center bg-[url(/btc_element.png)] bg-contain bg-no-repeat bg-[#F5F5F5] pt-20 md:pt-12">
+      <section className="min-h-screen flex flex-col justify-start items-center md:bg-[url(/btc_element.png)] bg-contain bg-no-repeat bg-[#F5F5F5] pt-20 md:pt-12">
         <div className="flex flex-col gap-4 items-center">
           <div className="w-full md:w-1/2 flex justify-center">
             <img src="/btc_logo.png" alt="btc_logo" className="w-full h-auto" />

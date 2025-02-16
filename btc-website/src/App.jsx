@@ -4,6 +4,7 @@ import { Projects } from "./pages/Projects";
 import { Support } from "./pages/Support";
 import { Team } from "./pages/Team";
 import { Home } from "./pages/Home";
+import { Join } from "./pages/Join";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/support" element={<Support />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/join" element={<Join />} />
         </Routes>
       </Router>
     </div>

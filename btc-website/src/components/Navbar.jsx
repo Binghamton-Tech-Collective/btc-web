@@ -86,9 +86,11 @@ export const Navbar = () => {
               </li>
             ))}
             <li className="w-full md:w-auto">
-              <button className="bg-btc hover:bg-btcdark text-white py-2 px-4 mb-5 md:mb-0 rounded-lg transition-colors flex items-center gap-2 mx-auto md:mx-0 text-[24px] md:text-base">
-                Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
-              </button>
+              <Link to={"/join"}>
+                <button className="bg-btc hover:bg-btcdark text-white py-2 px-4 mb-5 md:mb-0 rounded-lg transition-colors flex items-center gap-2 mx-auto md:mx-0 text-[24px] md:text-base">
+                  Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
+                </button>
+              </Link>
             </li>
           </ul>
         </div>

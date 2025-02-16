@@ -62,7 +62,7 @@ export const Home = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col gap-6 justify-center md:w-1/2 w-full md:order-1 order-2"
         >
@@ -83,7 +83,7 @@ export const Home = () => {
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="md:w-[735px] md:h-[547px] bg-[#d9d9d9] w-[300px] h-[250px] md:order-2 order-1 mt-10 md:mt-0"
         />
