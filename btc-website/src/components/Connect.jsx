@@ -28,16 +28,16 @@ export const Connect = () => {
           </p>
         </div>
         <div className="flex flex-row gap-4 justify-center md:justify-end md:ml-auto w-full md:w-auto">
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/bingtechcollective/" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-instagram text-2xl"></i>
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/company/binghamton-tech-collective/" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-linkedin text-2xl"></i>
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Binghamton-Tech-Collective" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-github text-2xl"></i>
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer">
+          <a href="mailto:techcollective@binghamtonsa.org" target="_blank" rel="noopener noreferrer">
             <i className="fa-solid fa-envelope text-2xl"></i>
           </a>
         </div>

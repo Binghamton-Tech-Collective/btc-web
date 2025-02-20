@@ -74,10 +74,7 @@ export const Team = () => {
             Meet the BTC Team <br />
           </h2>
           <p className="text-[#212529] md:text-left text-center md:text-lg text-base font-normal font-inter max-w-[600px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Behind every great product is a team of passionate innovators, problem-solvers, and collaborators. Our diverse group of students brings together expertise in engineering, design, and product management to create solutions that make an impact. We’re driven by curiosity, fueled by teamwork, and committed to pushing the boundaries of what’s possible. Get to know the faces behind the work!
           </p>
           <button className="bg-btc mb-10 md:mb-0 hover:bg-btcdark text-white py-4 px-4 rounded-lg transition-colors items-center justify-center gap-2 md:w-1/4 w-1/2 md:mx-0 mx-auto font-bold">
             Join Now <i className="fa-solid fa-arrow-right text-sm"></i>

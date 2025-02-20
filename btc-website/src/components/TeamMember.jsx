@@ -15,7 +15,7 @@ export const TeamMember = (props) => {
             >
               <div className="w-48 h-48 mb-4 overflow-hidden rounded-full">
                 <img
-                  src={member.image}
+                  src={member.image || "/btc_favicon.png"}
                   alt={member.firstName}
                   className="w-full h-full object-cover"
                 />
