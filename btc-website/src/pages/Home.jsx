@@ -71,7 +71,7 @@ export const Home = () => {
             <span className="text-btc">by students, for students</span>
           </h2>
           <p className="text-[#212529] md:text-left text-center md:text-lg text-base font-normal font-inter leading-[30px]">
-            The Binghamton Tech Collective was founded in 2023 based on the lack
+            The Binghamton Tech Collective was founded in August 2023 based on the lack
             of cross-functional team-based product opportunities at Binghamton
             University. We are a tight-knit community focused on building
             innovative digital products.
