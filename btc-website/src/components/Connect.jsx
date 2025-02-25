@@ -8,13 +8,7 @@ export const Connect = () => {
         <div className="flex flex-col items-center gap-6 text-center">
           <h1 className="md:text-6xl text-5xl font-bold font-inter">Get Connected! </h1>
           <p className="md:text-lg text-base font-normal font-inter max-w-[1000px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Join our community of innovative thinkers, developers, and designers working to create software applications that enhance the Binghamton University Student Experience! Whether you're into coding, design, or just have great ideas, there's a place for you here. Build real solutions, gain hands-on experience, and shape the future of student life.
           </p>
           <button className="bg-btc hover:bg-btcdark text-white py-4 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-1/2 md:w-1/5 font-bold">
             Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
