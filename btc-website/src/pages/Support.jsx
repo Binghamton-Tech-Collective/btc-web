@@ -27,13 +27,13 @@ export const Support = () => {
             create meaningful opportunities for members to learn, grow, and give
             back.
           </p>
-          <button className="bg-btc hover:bg-btcdark py-4 px-2 rounded-md md:w-1/6 w-1/2 text-white font-bold">DONATE NOW</button>
+          <button className="bg-btc hover:bg-btcdark py-4 px-2 rounded-md md:w-1/6 w-1/2 text-white font-bold"><a href="https://advance.binghamton.edu/s/1796/lg22/form.aspx?sid=1796&gid=2&pgid=427&cid=1081" target="_blank">DONTATE NOW</a></button>
           <p className="text-center">
             To help our cause, type{" "}
             <span className="font-bold">“Binghamton Tech Collective”</span> in
             the comment box!
           </p>
-          <p className="text-center">Have questions? Email us.</p>
+          <p className="text-center">Have questions? <a href="mailto:techcollective@binghamtonsa.org" className="text-btc">Email us</a></p>
         </div>
       </section>
       <Connect />

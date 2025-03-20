@@ -11,7 +11,7 @@ export const Connect = () => {
             Join our community of innovative thinkers, developers, and designers working to create software applications that enhance the Binghamton University Student Experience! Whether you're into coding, design, or just have great ideas, there's a place for you here. Build real solutions, gain hands-on experience, and shape the future of student life.
           </p>
           <button className="bg-btc hover:bg-btcdark text-white py-4 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 w-1/2 md:w-1/5 font-bold">
-            Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
+            <a href="/join">Join Now <i className="fa-solid fa-arrow-right text-sm"></i></a>
           </button>
         </div>
       </section>

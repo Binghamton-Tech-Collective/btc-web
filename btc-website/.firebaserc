@@ -9,6 +9,13 @@
           "bingtechcollective"
         ]
       }
+    },
+    "btc-market-575d9": {
+      "hosting": {
+        "btc-site": [
+          "btc-market-575d9"
+        ]
+      }
     }
   },
   "etags": {}

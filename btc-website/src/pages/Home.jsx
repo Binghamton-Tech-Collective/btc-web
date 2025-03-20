@@ -5,8 +5,8 @@ export const Home = () => {
   const { scrollY } = useScroll();
   
   // Create transform values for left and right elements
-  const leftXTransform = useTransform(scrollY, [0, 300], [0, -1000]);
-  const rightXTransform = useTransform(scrollY, [0, 300], [0, 1000]);
+  const leftXTransform = useTransform(scrollY, [200, 800], [0, -1000]);
+  const rightXTransform = useTransform(scrollY, [200, 800], [0, 1000]);
   
   return (
     <div className="overflow-x-hidden">
@@ -28,7 +28,7 @@ export const Home = () => {
           </motion.div>
           <motion.div 
             style={{ x: leftXTransform }}
-            transition={{ type: "spring", stiffness: 50 }}
+            transition={{ type: "spring", stiffness: 25, damping: 20 }}
             className="flex flex-col gap-6 justify-center items-center w-full md:w-1/2 md:order-1"
           >
             <div className="flex flex-col gap-4 md:pt-20 pt-0">
