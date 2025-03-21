@@ -80,13 +80,15 @@ export const Home = () => {
             Join Now <i className="fa-solid fa-arrow-right text-sm"></i>
           </button>
         </motion.div>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ amount: 0.3 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="md:w-[735px] md:h-[547px] bg-[#d9d9d9] w-[300px] h-[250px] md:order-2 order-1 mt-10 md:mt-0"
-        />
+          className="md:w-[735px] md:h-[547px] w-[300px] h-[250px] md:order-2 order-1 mt-10 md:mt-0 flex items-center justify-center"
+        >
+          <img src="/IMG_3287.jpg" alt="BTC Team Image" className="w-full h-full object-contain" />
+        </motion.div> 
       </section>
 
       {/* More info */}
